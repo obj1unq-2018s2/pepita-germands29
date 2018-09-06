@@ -57,7 +57,8 @@ object pepita {
 	}
 	
 
-
+// TODO Estás precalculando, tratá de evitarlo. No seas ansioso por calcular la energía final,
+// al hacerlo estás perdiendo información, esto en programas más complejos te va a traer problemas.
 object mijo{
 	var energia = 0
 	method energia(){return energia}
@@ -66,7 +67,7 @@ object mijo{
 	method energiaDeComida(){return energia}
 }
 	
-
+// TODO Más precálculos
 object canelones {
 	var energia = 20
 	method energia(){return energia	}
@@ -96,6 +97,7 @@ object roque{
 
 object pepon{
 	var energia = 0
+	// TODO Esto no parece necesario.
 	method pupilo () {return self}
 	method energia()= energia 
 	method comer(comida, gramos){
@@ -113,6 +115,7 @@ object pipa{
 	method volar(kilometros){kilometrosTotales = kilometrosTotales + kilometros}
 	method comer(comida, gramos){gramosTotales= gramosTotales + gramos}
 	method haceLoQueQuieras(){}
+	// TODO Esto no parece necesario.
 	method pupilo(){return self}
 }
 
@@ -131,6 +134,7 @@ object sierrasCordobesas{
 }
 
 object marDelPlata{
+	// TODO Este nombre de variable es inadecuado, no expresa lo que la variable guarda.
 	var temporada= 1
 	method temporadaAlta(){ return temporada.between(1,3)}
 	method lugarVisitado(){ if(self.temporadaAlta()){return -20} else {return 80}}
@@ -138,6 +142,8 @@ object marDelPlata{
 }	
 
 object noroeste{
+	// TODO Precálculo y en este caso ya encontraste los problemas de esta estrategia: no funciona bien.
+	// ¿Te das cuenta en qué caso falla?
 	var energia = pepita.energia()
 	method lugarVisitado(){ return energia * 0.1	}
 }
@@ -152,6 +158,7 @@ object susana{
 		pupilo.comer(alpiste, 100)
 		pupilo.volar(20)
 	}
+	// TODO No parece necesario el mensaje .pupilo(), ¿por qué no guardar directamente el ave?
 	method tuPupiloEs(unAve){ pupilo = unAve.pupilo()}
 	method pupiloActual(){ return pupilo}
 }
